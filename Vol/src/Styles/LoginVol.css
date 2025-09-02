@@ -1,0 +1,148 @@
+:root{
+  --nav-h: 64px;
+  --blue: #2563eb;       /* primario */
+  --blue-700: #1d4ed8;   /* hover primario */
+  --pink: #ec4899;       /* marca */
+  --ring: rgba(37, 99, 235, .25);
+  --text: #1f2937;
+  --muted: #5b6472;
+  --border: #e9edf3;
+}
+
+/* Lienzo con el mismo fondo suave rosado -> azul */
+.auth{
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: linear-gradient(90deg, #fdecec 0%, #eef2ff 100%);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial;
+  color: var(--text);
+  position: relative;
+}
+
+/* Botón cerrar arriba a la derecha (ghost) */
+
+.close{
+  position: fixed;
+  margin-right: 50px;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Tarjeta tipo “glass” */
+.auth-card{
+  width: min(420px, 92vw);
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 22px;
+  box-shadow: 0 10px 30px rgba(16,24,40,.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  backdrop-filter: saturate(140%) blur(8px);
+}
+
+/* Marca igual al header (azul -> rosa) */
+.brand{
+  display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
+}
+.brand img{ width: 32px; height: 32px; border-radius: 8px; }
+.brand-text{
+  font-weight: 800; font-size: 1.15rem; letter-spacing: .2px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.auth-title{
+  margin: 8px 0 0 0;
+  font-size: 1.25rem; font-weight: 800;
+}
+.auth-desc{
+  margin: 4px 0 8px 0;
+  color: var(--muted);
+  font-size: .98rem;
+}
+
+/* Inputs */
+.input{
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.input::placeholder{ color:#9aa3af; }
+.input:focus{
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Alertas de error */
+.alert{
+  background: #fee2e2;
+  color: #7f1d1d;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: .95rem;
+}
+
+/* Botones */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 46px; padding: 0 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+.btn.xl{ height: 48px; font-size: 1rem; }
+
+.btn.primary{
+  background: var(--blue); color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.btn.primary:hover{ background: var(--blue-700); }
+
+.btn.google{
+  background: #fff; color: #111827; border: 1px solid var(--border);
+}
+.btn.google:hover{ background: #f8fafc; }
+.g-icon{
+  width: 22px; height: 22px; margin-right: 8px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 800; font-family: Arial, Helvetica, sans-serif;
+  background: conic-gradient(from 0deg,
+    #ea4335 0 25%, #fbbc05 25% 50%, #34a853 50% 75%, #4285f4 75% 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.btn.link{
+  background: transparent; border: none; color: var(--blue);
+  height: auto; padding: 8px 0; font-weight: 700;
+}
+.btn.link:hover{ text-decoration: underline; }
+
+/* Switch login/registro */
+.switch{
+  margin: 2px 0 0; color: var(--muted); text-align: center;
+}
+.switch-btn{
+  background: none; border: none; color: var(--blue);
+  font-weight: 800; cursor: pointer; padding-left: 4px;
+}
+.switch-btn:hover{ text-decoration: underline; }

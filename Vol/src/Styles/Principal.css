@@ -1,0 +1,103 @@
+/* ===== Variables & reset ===== */
+:root{
+  --nav-h: 64px;
+  --blue: #2563eb;      /* Registrarse / acento azul */
+  --blue-700: #1d4ed8;
+  --pink: #ec4899;      /* Degradado marca */
+  --text: #1f2937;
+  --muted: #5b6472;
+}
+
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; height:100%; }
+
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial;
+  color: var(--text);
+  /* Fondo como la imagen: suave rosado -> azul */
+  background: linear-gradient(90deg, #fdecec 0%, #eef2ff 100%);
+}
+
+/* ===== Layout general ===== */
+.landing-container{
+  display:flex; flex-direction:column;
+  padding-top: var(--nav-h);  /* para no tapar el contenido con la navbar fija */
+}
+
+/* ===== Navbar (pegada arriba sin margen) ===== */
+.navbar{
+  position: fixed; top:0; left:0; right:0; height: var(--nav-h);
+  background: rgba(255,255,255,.9);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid #e9edf3;
+  z-index: 1000;
+}
+
+.nav-inner{
+  max-width: 1150px; margin: 0 auto; height: 100%;
+  padding: 0 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand{ display:flex; align-items:center; gap:.55rem; text-decoration:none; }
+.logo-img{ width:28px; height:28px; border-radius:8px; }
+
+/* Texto de marca con degradado (azul -> rosa, como la imagen) */
+.brand-text{
+  font-weight: 800; font-size: 1.1rem; letter-spacing: .2px;
+  background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* Botones del header */
+.actions{ display:flex; gap:.6rem; }
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:36px; padding: 0 .95rem; border-radius: 12px;
+  font-weight: 700; text-decoration:none; border:1px solid transparent;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.btn.primary{ background: var(--blue); color:#fff; }
+.btn.primary:hover{ background: var(--blue-700); }
+.btn.ghost{ background:#fff; color:#0f172a; border-color:#e5e7eb; }
+.btn.ghost:hover{ background:#f8fafc; }
+
+/* ===== Hero ===== */
+.hero-section{
+  max-width: 1150px; margin:0 auto; padding: 64px 20px 90px;
+  text-align:center;
+}
+.hero-section h1{
+  margin:0;
+  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+  line-height:1.05; font-weight:800; letter-spacing:-.02em;
+}
+
+/* Palabra "voluntariado" con degradado azul -> rojo -> azul como la captura */
+.gradient-text{
+  background: linear-gradient(90deg, #3b82f6 0%, #ef4444 50%, #3b82f6 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+
+.hero-section p{
+  max-width: 820px; margin: 18px auto 32px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+}
+
+/* CTA botones del hero */
+.hero-buttons{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+.btn.xl{ height:48px; padding: 0 1.2rem; border-radius: 12px; font-size: 1rem; }
+.btn.solid{ background: var(--blue); color:#fff; }
+.btn.solid:hover{ background: var(--blue-700); }
+.btn.light{ background:#fff; color:#111827; border:1px solid #e5e7eb; }
+.btn.light:hover{ background:#f8fafc; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px){
+  .nav-inner{ padding: 0 14px; }
+}
